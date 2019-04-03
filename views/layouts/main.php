@@ -37,19 +37,19 @@ AppAsset::register($this);
         ],
     ]);
     
-    $navItem = [ 
+    $navItem = [/*
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-        
+        ['label' => 'Contact', 'url' => ['/site/contact']],*/
     ];
+
     if(Yii::$app->user->isGuest){
         array_push($navItem, ['label' => 'Login', 'url' => ['/site/login']], ['label' => 'Registro', 'url' => ['/site/register']]);
     } else {
-        array_push($navItem, ['label' => 'Calculadora', 'url' => ['/calculadora/calculadora']]);
+        /*array_push($navItem, ['label' => 'Calculadora', 'url' => ['/calculadora/calculadora']]);*/
         array_push($navItem, ['label' => 'CRUD Canciones', 'url' => ['/canciones/index']]);
+        array_push($navItem, ['label' => 'CRUD Albumes', 'url' => ['/albums/index']]);
         array_push($navItem, ['label' => 'CRUD Usuarios', 'url' => ['/usuarios/index']], '<li>'.Html::beginForm(['/site/logout'], 'post').Html::submitButton('Logout ('.Yii::$app->user->identity->nombre.')', ['class' => 'btn btn-link logout']).Html::endForm().'</li>');
-
     }
 
     echo Nav::widget([
