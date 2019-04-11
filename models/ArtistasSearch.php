@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Country;
+use app\models\Artistas;
 
 /**
- * CountrySearch represents the model behind the search form of `app\models\Country`.
+ * ArtistasSearch represents the model behind the search form of `app\models\Artistas`.
  */
-class CountrySearch extends Country
+class ArtistasSearch extends Artistas
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class CountrySearch extends Country
     public function rules()
     {
         return [
-            [['code', 'name'], 'safe'],
-            [['population'], 'integer'],
+            [['id', 'edad'], 'integer'],
+            [['artista', 'nacionalidad', 'genero'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class CountrySearch extends Country
      */
     public function search($params)
     {
-        $query = Country::find();
+        $query = Artistas::find();
 
         // add conditions that should always apply here
 
@@ -58,11 +58,13 @@ class CountrySearch extends Country
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'population' => $this->population,
+            'id' => $this->id,
+            'edad' => $this->edad,
         ]);
 
-        $query->andFilterWhere(['like', 'code', $this->code])
-            ->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'artista', $this->artista])
+            ->andFilterWhere(['like', 'nacionalidad', $this->nacionalidad])
+            ->andFilterWhere(['like', 'genero', $this->genero]);
 
         return $dataProvider;
     }

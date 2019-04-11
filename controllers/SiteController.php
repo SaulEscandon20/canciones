@@ -129,24 +129,6 @@ class SiteController extends Controller
         return $this->render('say', ['message' => $message]); 
     }
 
-    public function actionEntry()
-    {
-        $model = new EntryForm;
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) 
-        {
-            // validar los datos recibidos en el modelo
-            // aquí haz algo significativo con el modelo ...
-            return $this->render('entry-confirm', ['model' => $model]);
-
-        } else {
-
-            // la página es mostrada inicialmente o hay algún error de validación
-            return $this->render('entry', ['model' => $model]);
-
-        }
-    }
-
     public function actionRegister()
     {
         $model = new Usuarios();
@@ -170,9 +152,7 @@ class SiteController extends Controller
 
     public function actionRegisterConfirm()
     {
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+        actionLogin();
     }
 
 }

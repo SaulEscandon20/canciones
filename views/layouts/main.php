@@ -21,7 +21,7 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title>Canciones</title>
     <?php $this->head() ?>
 </head>
 <body>
@@ -37,18 +37,15 @@ AppAsset::register($this);
         ],
     ]);
     
-    $navItem = [ 
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-        
-    ];
+    $navItem = [];
+    
     if(Yii::$app->user->isGuest){
         array_push($navItem, ['label' => 'Login', 'url' => ['/site/login']], ['label' => 'Registro', 'url' => ['/site/register']]);
     } else {
-        array_push($navItem, ['label' => 'Calculadora', 'url' => ['/calculadora/calculadora']]);
-        array_push($navItem, ['label' => 'CRUD Canciones', 'url' => ['/canciones/index']]);
-        array_push($navItem, ['label' => 'CRUD Usuarios', 'url' => ['/usuarios/index']], '<li>'.Html::beginForm(['/site/logout'], 'post').Html::submitButton('Logout ('.Yii::$app->user->identity->nombre.')', ['class' => 'btn btn-link logout']).Html::endForm().'</li>');
+        array_push($navItem, ['label' => 'Canciones', 'url' => ['/canciones/index']]);
+        array_push($navItem, ['label' => 'Artistas', 'url' => ['/artistas/index']]);
+        array_push($navItem, ['label' => 'Albumes', 'url' => ['/albumes/index']]);
+        array_push($navItem, ['label' => 'Usuarios', 'url' => ['/usuarios/index']], '<li>'.Html::beginForm(['/site/logout'], 'post').Html::submitButton('Logout ('.Yii::$app->user->identity->nombre.')', ['class' => 'btn btn-link logout']).Html::endForm().'</li>');
 
     }
 
