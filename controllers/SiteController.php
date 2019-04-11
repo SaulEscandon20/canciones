@@ -124,6 +124,14 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+    /**
+     * Mostrar Ventana de Albums
+     */
+    public function actionAlbumes()
+    {
+        return $this->render('albums', ['model' => $model,]);
+    }
+
     public function actionSay($message = 'Hola') 
     { 
         return $this->render('say', ['message' => $message]); 

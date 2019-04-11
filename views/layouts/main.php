@@ -47,7 +47,7 @@ AppAsset::register($this);
         array_push($navItem, ['label' => 'Albumes', 'url' => ['/albumes/index']]);
         array_push($navItem, ['label' => 'Usuarios', 'url' => ['/usuarios/index']], '<li>'.Html::beginForm(['/site/logout'], 'post').Html::submitButton('Logout ('.Yii::$app->user->identity->nombre.')', ['class' => 'btn btn-link logout']).Html::endForm().'</li>');
 
-    }
+   }
 
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
