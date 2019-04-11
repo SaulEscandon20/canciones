@@ -23,9 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
      <div class="form-group">
             <div class="col-lg-offset-1 col-lg-11">
-                <!-- <?= Html::submitButton('Login', ['class' => 'btn btn-primary']) ?> -->
-                <!-- <?php echo CHtml::submitButton('Listar', array('submit'=>array('site/index'),)); ?> -->
-                <p><a class="btn btn-lg btn-success" href="/basicCommit/canciones/web/index.php?r=site%2Flogin">Iniciar Sesión</a></p>
+                <?= Html::submitButton('Login', ['class' => 'btn btn-primary']) ?>
             </div>
         </div>
 </div>
